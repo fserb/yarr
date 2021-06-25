@@ -29,10 +29,7 @@ var shortcutFunctions = {
     }
   },
   markAllRead: function() {
-    // same condition as 'Mark all read button'
-    if (vm.filterSelected == 'unread'){
-      vm.markItemsRead()
-    }
+    vm.markItemsRead()
   },
   toggleItemStarred: function() {
     if (vm.itemSelected != null) {
@@ -75,14 +72,14 @@ var shortcutFunctions = {
 var keybindings = {
   "o": shortcutFunctions.openItemLink,
   "i": shortcutFunctions.toggleReadability,
-  "r": shortcutFunctions.toggleItemRead,
+  "m": shortcutFunctions.toggleItemRead,
   "R": shortcutFunctions.markAllRead,
   "s": shortcutFunctions.toggleItemStarred,
   "/": shortcutFunctions.focusSearch,
   "j": shortcutFunctions.nextItem,
   "k": shortcutFunctions.previousItem,
-  "l": shortcutFunctions.nextFeed,
-  "h": shortcutFunctions.previousFeed,
+  "n": shortcutFunctions.nextFeed,
+  "p": shortcutFunctions.previousFeed,
   "f": shortcutFunctions.scrollForward,
   "b": shortcutFunctions.scrollBackward,
   "1": shortcutFunctions.showUnread,
