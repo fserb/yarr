@@ -224,6 +224,7 @@ var vm = new Vue({
         'size': s.theme_size,
       },
       'refreshRate': s.refresh_rate,
+      'autoMarkRead': s.auto_mark_read,
       'authenticated': app.authenticated,
       'feed_errors': {},
     }
@@ -321,6 +322,7 @@ var vm = new Vue({
 
       api.items.get(newVal).then(function(item) {
         this.itemSelectedDetails = item
+        if (!this.autoMarkRead) return;
         if (this.itemSelectedDetails.status == 'unread') {
           api.items.update(this.itemSelectedDetails.id, {status: 'read'}).then(function() {
             this.feedStats[this.itemSelectedDetails.feed_id].unread -= 1
@@ -350,6 +352,10 @@ var vm = new Vue({
       if (oldVal === undefined) return  // do nothing, initial setup
       api.settings.update({refresh_rate: newVal})
     },
+    'autoMarkRead': function(newVal, oldVal) {
+      if (oldVal === undefined) return  // do nothing, initial setup
+      api.settings.update({auto_mark_read: newVal})
+    }
   },
   methods: {
     refreshStats: function(loopMode) {

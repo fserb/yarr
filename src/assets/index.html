@@ -74,7 +74,17 @@
                         <button class="dropdown-item px-0" :class="{active: itemSortNewestFirst}" @click.stop="itemSortNewestFirst=true">New</button>
                         <button class="dropdown-item px-0" :class="{active: !itemSortNewestFirst}" @click.stop="itemSortNewestFirst=false">Old</button>
                     </div>
+
                     <div class="dropdown-divider"></div>
+
+                    <header class="dropdown-header">Auto mark as read</header>
+                    <div class="d-flex text-center">
+                        <button class="dropdown-item px-0" :class="{active: autoMarkRead}" @click.stop="autoMarkRead=true">Yes</button>
+                        <button class="dropdown-item px-0" :class="{active: !autoMarkRead}" @click.stop="autoMarkRead=false">No</button>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
                     <header class="dropdown-header">Subscriptions</header>
                     <form id="opml-import-form" enctype="multipart/form-data" tabindex="-1">
                         <input type="file"
