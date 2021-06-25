@@ -1,4 +1,4 @@
-## This fork:
+## This fork has:
 
 * Auto mark as read setting
 * Mark all as read work on all views
@@ -8,7 +8,6 @@
   * add 'r' to reload page
 * Show mark all as read and settings icon on all views
 * Use feed charset instead of HTTP Content-type charset
-
 
 # yarr
 
