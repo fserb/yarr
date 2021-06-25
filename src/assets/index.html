@@ -183,12 +183,14 @@
                 </div>
                 <button class="toolbar-item ml-2"
                         @click="markItemsRead()"
+                        v-if="current.type == 'feed'"
                         title="Mark All Read">
                     <span class="icon">{% inline "check.svg" %}</span>
                 </button>
                 <dropdown class="settings-dropdown"
                           toggle-class="btn btn-link toolbar-item px-2 ml-2"
                           drop="right"
+                          v-if="current.type == 'feed'"
                           title="Feed Settings">
                     <template v-slot:button>
                         <span class="icon">{% inline "more-horizontal.svg" %}</span>
@@ -234,7 +236,7 @@
                           toggle-class="btn btn-link toolbar-item px-2 ml-2"
                           title="Folder Settings"
                           drop="right"
-                          v-if="!filterSelected && current.type == 'folder'">
+                          v-if="current.type == 'folder'">
                     <template v-slot:button>
                         <span class="icon">{% inline "more-horizontal.svg" %}</span>
                     </template>
