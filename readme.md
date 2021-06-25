@@ -1,3 +1,12 @@
+## This fork has:
+
+* Auto mark as read setting
+* Mark all as read work on all views
+* Key bindings change:
+  * previous/next feed with `p` and `n`
+  * toggle read/unread `m`
+* Show mark all as read and settings icon on all views
+
 # yarr
 
 **yarr** (yet another rss reader) is a web-based feed aggregator which can be used both
