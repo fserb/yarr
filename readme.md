@@ -1,4 +1,4 @@
-## This fork has:
+## This fork:
 
 * Auto mark as read setting
 * Mark all as read work on all views
