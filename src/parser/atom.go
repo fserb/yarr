@@ -6,6 +6,8 @@ import (
 	"io"
 	"strings"
 
+	"golang.org/x/net/html/charset"
+
 	"github.com/nkanaev/yarr/src/content/htmlutil"
 )
 
@@ -72,7 +74,8 @@ func (links atomLinks) First(rel string) string {
 func ParseAtom(r io.Reader) (*Feed, error) {
 	srcfeed := atomFeed{}
 
-	decoder := xmlDecoder(r)
+	decoder := xml.NewDecoder(r)
+	decoder.CharsetReader = charset.NewReaderLabel
 	if err := decoder.Decode(&srcfeed); err != nil {
 		return nil, err
 	}
@@ -102,3 +105,4 @@ func ParseAtom(r io.Reader) (*Feed, error) {
 	}
 	return dstfeed, nil
 }
+
