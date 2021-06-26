@@ -6,6 +6,7 @@ package parser
 
 import (
 	"encoding/xml"
+	"golang.org/x/net/html/charset"
 	"io"
 	"path"
 	"strings"
@@ -58,7 +59,8 @@ type rssEnclosure struct {
 func ParseRSS(r io.Reader) (*Feed, error) {
 	srcfeed := rssFeed{}
 
-	decoder := xmlDecoder(r)
+	decoder := xml.NewDecoder(r)
+	decoder.CharsetReader = charset.NewReaderLabel
 	decoder.DefaultSpace = "rss"
 	if err := decoder.Decode(&srcfeed); err != nil {
 		return nil, err

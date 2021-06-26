@@ -3,6 +3,7 @@ package parser
 
 import (
 	"encoding/xml"
+	"golang.org/x/net/html/charset"
 	"html"
 	"io"
 	"strings"
@@ -71,7 +72,8 @@ func (links atomLinks) First(rel string) string {
 func ParseAtom(r io.Reader) (*Feed, error) {
 	srcfeed := atomFeed{}
 
-	decoder := xmlDecoder(r)
+	decoder := xml.NewDecoder(r)
+	decoder.CharsetReader = charset.NewReaderLabel
 	if err := decoder.Decode(&srcfeed); err != nil {
 		return nil, err
 	}
