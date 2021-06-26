@@ -5,6 +5,7 @@ package parser
 
 import (
 	"encoding/xml"
+	"golang.org/x/net/html/charset"
 	"io"
 )
 
@@ -27,7 +28,8 @@ type rdfItem struct {
 func ParseRDF(r io.Reader) (*Feed, error) {
 	srcfeed := rdfFeed{}
 
-	decoder := xmlDecoder(r)
+	decoder := xml.NewDecoder(r)
+	decoder.CharsetReader = charset.NewReaderLabel
 	if err := decoder.Decode(&srcfeed); err != nil {
 		return nil, err
 	}
