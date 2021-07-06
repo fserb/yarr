@@ -141,10 +141,14 @@ var shortcutFunctions = {
   showStarred() {
     vm.filterSelected = 'starred'
   },
+  reload() {
+    window.location.reload();
+  },
 }
 
 // If you edit, make sure you update the help modal
 var keybindings = {
+  "r": shortcutFunctions.reload,
   "o": shortcutFunctions.openItemLink,
   "i": shortcutFunctions.toggleReadability,
   "m": shortcutFunctions.toggleItemRead,

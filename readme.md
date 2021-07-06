@@ -5,6 +5,7 @@
 * Key bindings change:
   * previous/next feed with `p` and `n`
   * toggle read/unread `m`
+  * add 'r' to reload page
 * Show mark all as read and settings icon on all views
 * Use feed charset instead of HTTP Content-type charset
 
