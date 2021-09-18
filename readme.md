@@ -8,6 +8,7 @@
   * add 'r' to reload page
 * Show mark all as read and settings icon on all views
 * Use feed charset instead of HTTP Content-type charset
+* Adding a new feed defaults to current folder
 
 # yarr
 
