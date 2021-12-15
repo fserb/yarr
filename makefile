@@ -18,7 +18,7 @@ build_macos:
 
 build_linux:
 	mkdir -p _output/linux
-	GOOS=linux go build -tags "sqlite_foreign_keys linux" -ldflags="$(GO_LDFLAGS)" -o _output/linux/yarr ./cmd/yarr
+	GOOS=linux go build -tags "sqlite_foreign_keys linux" -x -ldflags="$(GO_LDFLAGS)" -o _output/linux/yarr ./cmd/yarr
 
 build_windows:
 	mkdir -p _output/windows
@@ -31,3 +31,4 @@ serve:
 
 test:
 	go test -tags "sqlite_foreign_keys" ./...
+

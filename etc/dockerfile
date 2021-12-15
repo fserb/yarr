@@ -1,13 +1,14 @@
-FROM golang:alpine3.18 AS build
+FROM amd64/golang:alpine3.18 AS build
 RUN apk add build-base git
 WORKDIR /src
 COPY . .
 RUN make build_linux
 
-FROM alpine:latest
+FROM amd64/alpine:latest
 RUN apk add --no-cache ca-certificates && \
     update-ca-certificates
 COPY --from=build /src/_output/linux/yarr /usr/local/bin/yarr
 EXPOSE 7070
 ENTRYPOINT ["/usr/local/bin/yarr"]
 CMD ["-addr", "0.0.0.0:7070", "-db", "/data/yarr.db"]
+
